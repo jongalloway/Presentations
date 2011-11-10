@@ -1,0 +1,17 @@
+<#@ Template Language="C#" HostSpecific="True" Inherits="DynamicTransform" #>
+<#@ Output Extension="cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.DateTime;
+
+// HELLO!!!
+
+namespace <#= Model.Namespace #>
+{ 
+    public class ExampleOutput
+    {
+		// Example model value from scaffolder script: <#= Model.ExampleValue #>
+	}
+}

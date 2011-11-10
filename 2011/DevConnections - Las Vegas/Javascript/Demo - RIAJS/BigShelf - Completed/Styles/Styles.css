@@ -1,0 +1,446 @@
+﻿body
+{
+    background-image: url('BG.png');
+    background-repeat: repeat-x;
+    background-color: White;
+    margin: 0px;
+    font-family: Segoe UI, Georgia;
+    font-size: 10pt;
+    color: #404040;
+}
+
+.filterButton, .friendButton, .sortButton, .pagerButton
+{
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+.selected
+{
+    font-weight:bold;
+    text-decoration: none;
+    cursor: inherit;
+}
+
+.friendButton.selected
+{
+    background:url(checkmark.png) left no-repeat;
+    padding-left:17px;
+    cursor: pointer;
+}
+
+.book-title
+{
+    font-weight: bold;
+    color: #555555;
+    margin-top:5px;
+}
+
+.book-author
+{
+    font-size: 9pt;
+}
+
+.disabled
+{
+    position: absolute;
+    z-index: 45;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.50;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    background: no-repeat center center;
+}
+
+DIV.header
+{
+    position: absolute;
+    top: 126px;
+    left: 50%;
+    margin-top: -110px;
+    margin-left: -461px;
+    background: transparent;
+    width: 944px;
+    height: 181px;
+}
+
+DIV.login
+{
+    position: absolute;
+    top: 192px;
+    left: 50%;
+    margin-left: -461px;
+    width:944px;
+    z-index: 2;
+    color: #FFFFFF;
+    text-align:right;
+}
+
+DIV.login > UL
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+DIV.login > UL LI
+{
+    float:right;
+    color: #fff;
+    display: block;
+    display: inline-block;
+    font-weight: bold;
+    height: 22px;
+    padding: 5px 0 0 20px;
+}
+
+DIV.login > UL LI A
+{
+    text-decoration: none!important;
+}
+
+DIV.anonymousContent, DIV.catalogFilter
+{
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    margin-left: -445px;
+    z-index: 2;
+}
+
+#login-username, #login-password, #login-remember
+{
+    clear:left;
+    padding-top: 8px;
+}
+
+#login-username label, #login-password label
+{
+    margin-left:2px;
+    float:left;
+    width:75px;
+}
+
+#login-username input, #login-password input
+{
+    float:left;
+}
+
+DIV.friendsList
+{
+    position: absolute;
+    top: 275px;
+    left: 50%;
+    margin-left: -445px;
+    z-index: 2;
+}
+
+#profileTitle
+{
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    margin-left: -425px;
+    z-index: 2;
+    font-size: 18pt;
+    color: #999999;
+}
+
+#profileContainer
+{
+    position: absolute;
+    top: 290px;
+    left: 50%;
+    margin-left: -445px;
+    z-index: 2;
+}
+
+.profile-property-input
+{
+    border: 1px solid #999999;
+    padding: 4px 6px 4px 6px;
+    font-size: 10pt;
+    float: left;
+    padding-right: 0px;
+    width: 425px;
+    color: #404040;
+}
+
+.profile-property-label
+{
+    color: #999999;
+    width: 86px;
+}
+
+#profileContainer tr
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+#profileContainer tr.updated input
+{
+    background-color: #F5C47A;
+}
+
+span.revertDelete
+{
+    width: 25px;
+    float: right;
+    display: block;
+    background: url(editing_edited.png) no-repeat center center;
+}
+
+span.moveIntoInputBox
+{
+    margin-left: -25px;
+    height: 25px;
+    float: left;
+}
+
+#profileContainer tr.updated span.revertDelete
+{
+    background: url(editing_revert.png) no-repeat center center;
+}
+
+button.profile-button
+{
+    color: #FFFFFF;
+    padding: 3px 3px 3px 3px;
+    border: 0px solid white;
+    background-color: #404040;
+}
+
+button.profile-button#submit
+{
+    background-color: #C87E0F;
+}
+
+#profile-friends-wrapper
+{
+    border: 1px solid #999999;
+    width: 425px;
+    height: 100px;
+    padding: 3px;
+}
+
+#friend-list
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#friend-list li
+{
+    padding: 4px 6px 4px 6px;
+    margin: 1px;
+    width: auto;
+    text-decoration: none;
+    vertical-align: middle;
+    float: left;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #bbd8fb;
+    background-color: rgb(233, 238, 250);
+}
+
+#friend-list li.deleted
+{
+    border-color: red;
+    background-color: rgb(255, 210, 210);
+    text-decoration: line-through;
+}
+
+#friend-list li.added
+{
+    border-color: green;
+    background-color: rgb(210, 255, 210);
+}
+
+#friend-list li.deleted span.revertDelete, #friend-list li.added span.revertDelete
+{
+    background: url(editing_revert.png) no-repeat center center;
+}
+
+#friend-list span.revertDelete
+{
+    background: url(editing_deleted.png) no-repeat center center;
+}
+
+#add-friend-text
+{
+    width: 340px;
+    float: inherit;
+    margin-right: 10px;
+}
+
+DIV.sortBy
+{
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    margin-left: -130px;
+    z-index: 2;
+}
+
+DIV.search
+{
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    width: 175px;
+    margin-left: 250px;
+    z-index: 2;
+}
+
+#searchBox
+{
+    border: 1px solid #999999;
+    padding: 4px 6px 4px 6px;
+    font-family: Georgia;
+    font-size: 10pt;
+    color: #404040;
+}
+
+DIV.catalog
+{
+    position: absolute;
+    top: 310px;
+    left: 50%;
+    width: 944px;
+    margin-left: -461px;
+    z-index: 2;
+}
+
+DIV.catalogNavigation
+{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -24px;
+    margin-left: -440px;
+    z-index: 2;
+}
+
+DIV.footer
+{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -565px;
+    margin-left: -512px;
+    width: 1024px;
+    height: 565px;
+    z-index: -1;
+}
+
+a.login:link
+{
+    text-decoration: underline;
+    color: White;
+}
+a.login:hover
+{
+    text-decoration: none;
+    color: White;
+}
+a.login:active
+{
+    text-decoration: underline;
+    color: White;
+}
+a.login:visited
+{
+    text-decoration: underline;
+    color: White;
+}
+
+.save-button
+{
+    /*absolute to the book-item container */
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+}
+.book-button
+{
+    text-align: center;
+    font-family: arial, helvetica, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    float: none;
+    background-image: url("button_bg.png");
+    background-attachment: scroll;
+    background-repeat: repeat-x;
+    background-color: transparent;
+    overflow: hidden;
+    border-top-color: #666;
+    border-right-color: #666;
+    border-bottom-color: #666;
+    border-left-color: #666;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    display: block;
+    width: 108px;
+    height: 20px;
+}
+.book-notadded
+{
+    letter-spacing: 1px;
+    background-color: rgb(230, 15, 2);
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.book-saved, .book-read
+{
+    letter-spacing: normal;
+    background-color: rgb(255, 255, 255);
+    /*color: #b9090b !important;*/
+}
+
+.book-item
+{
+    width: 312px;
+    height: 11.5em;
+    text-decoration: none;
+    vertical-align: middle;
+    float: left;
+    position: relative;
+}
+
+.star-rating select
+{
+    visibility: hidden;
+    width: 0;
+}
+.star-rating-element
+{
+    width: 12px;
+    height: 12px;
+    background-image: url('Star.png');
+    background-repeat: no-repeat;
+    position: relative;
+    float: left;
+}
+.star-rating-element-selected
+{
+    background-image: url('Star_On.png');
+}
+.star-rating-element-hover
+{
+    background-image: url('Star_Hi.png') !important;
+}
+
+.watermark
+{
+    font-style: italic;
+}

@@ -1,0 +1,35 @@
+@model IEnumerable<Scaffolding.Models.Genre>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GenreID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GenreID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GenreID })
+        </td>
+        <td>
+			@item.Name
+        </td>
+    </tr>
+}
+
+</table>
+
+

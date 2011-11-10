@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PomodoroWP", "PomodoroWP\PomodoroWP.csproj", "{7ED05BA1-6A1C-448E-9154-0D6C190653FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioPlaybackAgent1", "AudioPlaybackAgent1\AudioPlaybackAgent1.csproj", "{91498515-AD77-429C-AC2E-B7F89EFA2165}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ED05BA1-6A1C-448E-9154-0D6C190653FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED05BA1-6A1C-448E-9154-0D6C190653FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED05BA1-6A1C-448E-9154-0D6C190653FD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7ED05BA1-6A1C-448E-9154-0D6C190653FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED05BA1-6A1C-448E-9154-0D6C190653FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED05BA1-6A1C-448E-9154-0D6C190653FD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{91498515-AD77-429C-AC2E-B7F89EFA2165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91498515-AD77-429C-AC2E-B7F89EFA2165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91498515-AD77-429C-AC2E-B7F89EFA2165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91498515-AD77-429C-AC2E-B7F89EFA2165}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

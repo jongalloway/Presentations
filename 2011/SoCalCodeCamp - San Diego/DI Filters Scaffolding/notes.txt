@@ -1,0 +1,32 @@
+Demos looking at service location, filter extensibility, NuGet, MvcScaffolding, HTML5 support, maybe more if you don't ask any hard questions.
+
+NuGet
+- 1 Minute description
+
+Dependency Injection
+- Demo: Message service
+- What's the point
+- Demo: Credit card processor
+http://www.jacopretorius.net/2011/01/dependency-injection-in-mvc-3.html
+
+Filters
+- Demo: Authorization
+- Global action filters
+- Demo: Global Filters (logging)
+- Demo: Dynamic Filters (selective logging)
+
+MvcScaffolding
+- Genre (GenreID, Name)
+- Album (AlbumID, Title, virtual Genre)
+- Default scaffolding
+- NuGet: EntityFramework.SqlServerCompact, MvcScaffolding
+- Re-scaffold
+- Custom-Scaffolder
+	scaffold CustomScaffolder Monkey
+	scaffold Monkey
+
+HTML5
+- Modernizr
+- Look at layout
+- Look at validation (account)
+- Project Silk

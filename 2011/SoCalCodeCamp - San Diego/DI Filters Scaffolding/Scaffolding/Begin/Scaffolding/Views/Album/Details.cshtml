@@ -1,0 +1,23 @@
+@model Scaffolding.Models.Album
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Album</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">@Model.Title</div>
+
+    <div class="display-label">Genre</div>
+    <div class="display-field">@(Model.Genre == null ? "None" : Model.Genre.Name)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AlbumID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

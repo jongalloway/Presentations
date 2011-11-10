@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.woods.iki.fi/interactive-jquery-tester.html -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><HTML><HEAD>
+<META content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+<TITLE>Interactive jQuery selector tester</TITLE>
+<STYLE type="text/css">
+    body {
+      background-color: white;
+      font-family: sans-serif;
+      box-sizing: border-box;
+      -mox-box-sizing: border-box;
+    }
+
+    .caption {
+      margin-bottom: 0.1em;
+      font-size: 90%;
+      color: #333;
+    }
+
+    #meat {
+	margin: 0 1em;
+    }
+
+    #expr {
+      width: 100%;
+    }
+    #in {
+      display: block;
+      width: 99%;
+      height: 99%;
+    }
+    
+    textarea, input {
+      background-color: #ffd;
+    }
+
+    #output {
+      border: 2px ridge #ddd;
+      padding: 0.3em 0;
+      font-size: 90%;
+      background-color: #f0f0f0;
+    }
+    #output * {
+      margin-left: 1em;
+    }
+    #output > div {
+      margin-left: -1.5em;
+    }
+    .tag {
+      color: #20b;
+    }
+    .marked {
+      color: #0a0;
+      background-color: white;
+    }
+    .text {
+      color: black;
+      margin-left: 2em !important;
+    }
+    #layout {
+        margin-top: 0.7em;
+    }
+</STYLE>
+
+<SCRIPT type="text/javascript" src="Interactive%20jQuery%20selector%20tester_files/jquery.min.js"></SCRIPT>
+
+<SCRIPT type="text/javascript">
+function render(nodeIn, destNode) {
+    $.each(nodeIn[0].childNodes, function(){
+	var newNode;
+        newNode = $("<div>");
+	if (this.nodeType == 1) {
+            newNode.addClass('tag').append("<div><span class='nodeName'>&lt;" + this.nodeName + "&gt;<\/span><\/div>");
+	    render($(this), newNode);
+            newNode.append("<div><span class='nodeName'>&lt;/" + this.nodeName + "&gt;<\/span><\/div>");
+	    if ($(this).is(".marked"))
+		$("> div > .nodeName", newNode).addClass('marked');
+	} else {
+            if (! /[^\t\n\r ]/.test(this.nodeValue))
+                return true;
+            newNode.append("<div class='text'>" + this.nodeValue + "<\/div>");
+	}
+        destNode.append(newNode);
+	return true;
+    });
+}
+
+function decorate() {
+  // Clone input markup and evaluate as HTML
+  var d = $($("#in").val());
+
+  // Run jQuery selector expression and set .marked property on matching elements
+  var str = $("#expr").val();
+  if (str)
+    $(str, d).each(function(){ $(this).addClass("marked"); });
+  
+  // Render d into #output
+  var out = $("#output").empty();
+  render(d, out);
+}
+</SCRIPT>
+
+<META name="GENERATOR" content="MSHTML 9.00.8112.16437"></HEAD>
+<BODY onload="decorate()">
+<H2>Interactive jQuery selector tester</H2>
+<DIV id="meat">
+<P class="caption">A jQuery selector expression (version 
+<SCRIPT type="text/javascript">document.write($.fn.jquery)</SCRIPT>
+):</P>
+<DIV id="xpath"><INPUT id="expr" onkeyup="decorate()" value="form, ul [zap], #menu, :input">
+</DIV><!-- Initial content for the textarea -->
+<DIV style="display: none;" id="initialIn">
+<DIV>
+<H1>title</H1>
+<DIV id="menu">
+<OL>
+  <LI>home</LI>
+  <LI><B>magic man</B></LI></OL></DIV>
+<DIV style="background-color: green;" id="sidebar">
+<FORM action="mew">
+<P><INPUT name="session_id" type="hidden"></P></FORM>
+<DIV>      A list of two follows      
+<UL>
+  <LI zap="2">one</LI>
+  <LI>two</LI></UL></DIV></DIV></DIV></DIV>
+<TABLE id="layout" title="layout table" cellSpacing="0" cellPadding="0" width="100%">
+  <TBODY>
+  <TR>
+    <TD class="caption">Matching elements highlighted:</TD>
+    <TD class="caption">Markup to test against:</TD></TR>
+  <TR style="height: 100%;">
+    <TD style="width: 40%; height: 100%; padding-right: 1em;" vAlign="top">
+      <DIV id="output"></DIV></TD>
+    <TD style="height: 100%;" vAlign="top">
+<SCRIPT type="text/javascript">
+    document.write(
+      '<textarea rows="20" cols="80" id="in" onkeyup="decorate()">',
+      $("#initialIn").html(),
+      "<\/textarea>"
+    );
+    </SCRIPT>
+    </TD></TR></TBODY></TABLE>
+<P style="font-size: 80%;">Written by Samuli Kärkkäinen &lt;skarkkai@wood
+<SCRIPT type="text/javascript">document.write(String.fromCharCode(115))</SCRIPT>
+.iki.fi&gt;. Idea from the <A 
+href="http://ponderer.org/download/xpath/">Interactive XPath tester</A>. See 
+jQuery <A href="http://docs.jquery.com/Selectors">selector language 
+docs</A>.</P></DIV></BODY></HTML>

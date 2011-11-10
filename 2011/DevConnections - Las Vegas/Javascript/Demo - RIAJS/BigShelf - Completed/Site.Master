@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BigShelf.SiteMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <!-- Intranet sites default to compatibility mode in IE9, which doesn't support "onchange" event bubbling. -->
+    <!-- We rely on "onchange" event bubbling for our data-linking. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" type="text/css" href="Styles/Styles.css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>BigShelf</title>
+</head>
+<body>
+    <div class="header">
+        <img src="/Styles/Header.png" width="944" height="181" usemap="#defaultLinkMap" style="border:none" alt="Big Shelf: Read books, share books."/>
+        <map name="defaultLinkMap" id="defaultLinkMap">
+            <area shape ="rect" coords ="10,85,215,170"  href ="/Default.aspx"  alt="Me" />
+        </map>
+    </div>
+    <form runat="server">
+    <div class="login">
+        <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
+            <AnonymousTemplate>
+                <ul>
+                    <li><a href="/Account/Login.aspx" id="HeadLoginStatus" class="login" runat="server">Log In</a></li>
+                </ul>
+            </AnonymousTemplate>
+            <LoggedInTemplate>
+                <ul>
+                    <li><asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="" CssClass="login" /></li>
+                    <li>Welcome <a href="/MyProfile.aspx" class="login"><asp:LoginName ID="HeadLoginName" runat="server" /></a>!</li>
+                </ul>
+            </LoggedInTemplate>
+        </asp:LoginView>
+    </div>
+    <asp:ContentPlaceHolder ID="LoginContent" runat="server" />
+    </form>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    <div class="footer">
+        <img src="/Styles/Footer.png" alt="Page footer" />
+    </div>
+</body>
+</html>

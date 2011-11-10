@@ -1,0 +1,215 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PomodoroWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="480"
+    d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid
+        x:Name="LayoutRoot"
+        Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="Auto" />
+            <RowDefinition
+                Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel
+            x:Name="TitlePanel"
+            Grid.Row="0"
+            Margin="12,17,0,28">
+            <TextBlock
+                x:Name="ApplicationTitle"
+                Text="Pomodoro"
+                Style="{StaticResource PhoneTextNormalStyle}" />
+            <TextBlock
+                x:Name="PageTitle"
+                Text="Timer"
+                Margin="9,-7,0,0"
+                Style="{StaticResource PhoneTextTitle1Style}" />
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid
+            x:Name="ContentPanel"
+            Grid.Row="1"
+            Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="1*" />
+                <RowDefinition
+                    Height="4*" />
+                <RowDefinition
+                    Height="1.2*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="4*" />
+                <ColumnDefinition
+                    Width="7*" />
+            </Grid.ColumnDefinitions>
+            <MediaElement
+                Name="AudioPlayer"
+                Visibility="Collapsed"
+                Source="dtmftones.mp3"
+                AutoPlay="false"
+                Volume="1"/>
+            <Button
+                Content="Start"
+                Height="72"
+                HorizontalAlignment="Left"
+                Name="ToggleButton"
+                VerticalAlignment="Center"
+                Width="160" />
+            <Button
+                Content="Interrupt"
+                Height="72"
+                Width="160"
+                HorizontalAlignment="Left"
+                Name="Interrupt"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Grid.Row="1" />
+            <TextBlock
+                Grid.Column="1"
+                Height="Auto"
+                HorizontalAlignment="Left"
+                Margin="5"
+                Name="TimerDisplay"
+                Text="25:00"
+                VerticalAlignment="Center"
+                Width="Auto"
+                FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                />
+            <StackPanel
+                Orientation="Horizontal"
+                Grid.Column="1"
+                Grid.Row="1"
+                HorizontalAlignment="Stretch"
+                Name="TomatoStackPanel"
+                VerticalAlignment="Stretch">
+                <Image 
+                    Name="TomatoImage"
+                    Source="Tomato.jpg"
+                    VerticalAlignment="Center"
+                    Height="Auto"
+                    Width="Auto"
+                    Margin="5" />
+                <TextBlock 
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Name="Tomatoes"
+                    Text="0" />
+                <Image
+                    Name="BustedTomatoImage"
+                    Source="BustedTomato.jpg"
+                    VerticalAlignment="Center"
+                    Height="Auto"
+                    Width="Auto"
+                    Margin="20,5,5,5" />
+                <TextBlock
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Name="BustedTomatoes"
+                    Text="0" />
+            </StackPanel>
+            <TextBlock
+                Grid.Row="2"
+                Height="Auto"
+                HorizontalAlignment="Right"
+                Name="CurrentTaskPrompt"
+                Text="Current Task:"
+                VerticalAlignment="Center"
+                Margin="5"/>
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                Height="Auto"
+                HorizontalAlignment="Left"
+                Name="CurrentTask"
+                Text=""
+                VerticalAlignment="Center"
+                Margin="5" />
+            <TextBlock
+                Grid.Row="3"
+                Height="Auto"
+                HorizontalAlignment="Left"
+                Margin="5"
+                Name="TaskListPrompt"
+                Text="Task List: "
+                VerticalAlignment="Bottom" />
+            <ListBox
+                Grid.ColumnSpan="2"
+                Grid.Row="4"
+                Height="Auto"
+                HorizontalAlignment="Stretch"
+                Margin="20,19,20,20"
+                Name="TaskListBox"
+                VerticalAlignment="Stretch"
+                Width="Auto"
+                Grid.RowSpan="2">
+            </ListBox>
+
+            <StackPanel
+                Name="AdminButtonStackPanel"
+                Orientation="Horizontal"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+
+                <Button
+                    Content="New Task"
+                    Height="72"
+                    Width="160"
+                    Margin="5"
+                    Name="NewTaskButton" />
+
+                <Button
+                    Content="Configure"
+                    Height="72"
+                    Width="160"
+                    Margin="5"
+                    Name="Configure" />
+
+
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
